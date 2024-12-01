@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cute Gift Reveal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-pink-100 flex items-center justify-center min-h-screen">
+  <div class="relative">
+    <!-- Button -->
+    <button 
+      id="openGiftBtn" 
+      class="bg-pink-500 hover:bg-pink-400 text-white font-bold px-6 py-3 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300"
+    >
+      🎀 Open Gift 🎁
+    </button>
+
+    <div 
+  id="giftDiv" 
+  class="hidden opacity-0 bg-yellow-100 border-4 border-pink-300 text-pink-700 text-center font-semibold p-6 rounded-lg shadow-lg w-64 transition-all duration-700"
+>
+  <p class="text-xl">💝 Thank you! 💝</p>
+  <p>Your gifts are always so thoughtful and amazing. It wasn’t easy since I don’t know you very well, but I really hope it made your day as much as it made mine! 🥳✨</p>
+  <p class="text-2xl mt-2">You’re the best! 🌟</p>
+  <p class="text-lg mt-4">"Here’s a song I’d love you to listen to."</p>
+  <iframe 
+    style="border-radius:12px; margin-top:10px;" 
+    src="https://open.spotify.com/embed/track/77KnJc8o5G1eKVwX5ywMeZ?utm_source=generator&theme=0" 
+    width="100%" 
+    height="80" 
+    frameBorder="0" 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy">
+  </iframe>
+</div>
+
+
+  <script>
+    document.getElementById('openGiftBtn').addEventListener('click', function () {
+      const button = document.getElementById('openGiftBtn');
+      const giftDiv = document.getElementById('giftDiv');
+
+      button.classList.add('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        button.remove();
+
+        giftDiv.classList.remove('hidden');
+        setTimeout(() => {
+          giftDiv.classList.add('opacity-100');
+        }, 50);
+      }, 300);
+    });
+  </script>
+</body>
+</html>
